@@ -4,103 +4,181 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ADD8E6"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textoBienvenida"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="167dp"
-        android:text="Bienvenido chaval"
+        android:layout_marginTop="65dp"
+        android:textAlignment="center"
+        app:cardBackgroundColor="@color/blue"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textoBienvenida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bienvenido chaval"
+            android:textSize="75px"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="413dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="50dp"
+        app:cardBackgroundColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/postMeme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="62dp"
+                android:layout_marginEnd="21dp"
+                android:layout_marginBottom="31dp"
+                android:backgroundTint="#ffa040"
+                android:text="Crear meme"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/editMeme"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/getMemeId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="17dp"
+                android:backgroundTint="#ffa040"
+                android:text="Obtener meme por id"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/getMemes"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/getMemes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="9dp"
+                android:backgroundTint="#ffa040"
+                android:text="Obtener memes"
+                app:layout_constraintEnd_toStartOf="@+id/getMemeId"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/editMeme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="31dp"
+                android:backgroundTint="#ffa040"
+                android:text="Editar meme"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/postMeme" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="320dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardBackgroundColor="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
-    <Button
-        android:id="@+id/getMemeId"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/getTags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffa040"
+                android:text="Obtener tags"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/postTag"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/postTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#ffa040"
+                android:text="Crear tag"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/getTags"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="178dp"
-        android:layout_marginBottom="25dp"
-        android:text="Obtener meme por id"
-        app:layout_constraintBottom_toTopOf="@+id/getMemes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoBienvenida" />
-
-    <Button
-        android:id="@+id/getMemes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="173dp"
-        android:layout_marginBottom="32dp"
-        android:text="Obtener memes"
-        app:layout_constraintBottom_toTopOf="@+id/postMeme"
+        android:layout_marginBottom="10dp"
+        android:text="Acciones tags"
+        android:textSize="50px"
+        app:layout_constraintBottom_toTopOf="@+id/cardView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getMemeId" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
-    <Button
-        android:id="@+id/postMeme"
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="143dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="135dp"
-        android:layout_marginBottom="26dp"
-        android:text="Crear meme"
-        app:layout_constraintBottom_toTopOf="@+id/editMeme"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="Acciones memes"
+        android:textSize="50px"
+        app:layout_constraintBottom_toTopOf="@+id/cardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getMemes" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <Button
-        android:id="@+id/editMeme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="143dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="131dp"
-        android:layout_marginBottom="15dp"
-        android:text="Editar meme"
-        app:layout_constraintBottom_toTopOf="@+id/getTags"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postMeme" />
-
-    <Button
-        android:id="@+id/getTags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="130dp"
-        android:layout_marginBottom="11dp"
-        android:text="Obtener tags"
-        app:layout_constraintBottom_toTopOf="@+id/postTag"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editMeme" />
-
-    <Button
-        android:id="@+id/postTag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="185dp"
-        android:layout_marginBottom="179dp"
-        android:text="Crear tag"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="411dp"
+        android:layout_height="294dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/getTags" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:srcCompat="@drawable/makina_github" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

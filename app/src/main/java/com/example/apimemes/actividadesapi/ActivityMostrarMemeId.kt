@@ -1,12 +1,19 @@
 package com.example.apimemes.actividadesapi
 
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.view.isVisible
+import com.example.apimemes.MainActivity
+import com.example.apimemes.R
+import com.example.apimemes.databinding.ActivityMainBinding
 import com.example.apimemes.databinding.ActivityMostrarMemeIdBinding
 import com.example.apimemes.memapi.MemeResponse
 import com.example.apimemes.memapi.MemeRetrofitInstance
+import com.squareup.picasso.Picasso
 import retrofit2.*
 
 class ActivityMostrarMemeId : AppCompatActivity()
@@ -18,42 +25,59 @@ class ActivityMostrarMemeId : AppCompatActivity()
         super.onCreate(savedInstanceState)
         binding = ActivityMostrarMemeIdBinding.inflate(layoutInflater)
 
-        binding.buscarId.setOnClickListener {
-            mostrarMeme()
+        var id = intent.getStringExtra("id")
+
+        mostrarMeme(Integer.valueOf(id))
+
+        binding.btnHome.setOnClickListener{
+            casita()
         }
 
         setContentView(binding.root)
     }
 
-    fun mostrarMeme()
+    fun mostrarMeme(id: Int)
     {
-        var id = binding.textId.text
+        var ino = id.toString()
 
-        if(id == null || id.equals(""))
-        {
-            Toast.makeText(this, "Necesito que escribas el id para mostrartelo", Toast.LENGTH_SHORT).show()
-        }
-        else
-        {
-            MemeRetrofitInstance.api.getMeme("/meme?id=")
-                .enqueue(object : Callback<MemeResponse> {
-                    override fun onResponse(
-                        call: Call<MemeResponse>,
-                        response: Response<MemeResponse>
-                    ) {
-                        if (response.body() != null) {
-                            //binding.tvSetup.text = response.body()?.setup
+        MemeRetrofitInstance.api.getMeme("/meme?id=$ino")
+            .enqueue(object : Callback<MemeResponse> {
+                override fun onResponse(
+                    call: Call<MemeResponse>,
+                    response: Response<MemeResponse>
+                ) {
+                    if (response.body() != null)
+                    {
+                        binding.tuedittext2.text = response.body()?.titInf
+                        binding.tuedittext.text = response.body()?.titSup
 
+                        val url = response.body()?.url
 
-                        } else {
-                            return
-                        }
+                        Picasso.get()
+                            .load(url)
+                            .error(R.mipmap.ic_launcher_round)
+                            .fit()
+                            .centerCrop()
+                            .into(binding.tuimageview)
+
+                        binding.progressBar.isVisible = false
                     }
-
-                    override fun onFailure(call: Call<MemeResponse>, t: Throwable) {
-                        Log.d("TAG", t.message.toString())
+                        else
+                    {
+                        return
                     }
-                })
-        }
+                }
+
+                override fun onFailure(call: Call<MemeResponse>, t: Throwable) {
+                    Log.d("TAG", t.message.toString())
+                }
+            })
+    }
+
+    fun casita()
+    {
+        intent = Intent(this, MainActivity::class.java)
+
+        startActivity(intent)
     }
 }

@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity()
 
     fun showMemeId()
     {
-        intent = Intent(this, ActivityMostrarMemeId::class.java)
+        intent = Intent(this, ActivityPedirId::class.java)
 
         startActivity(intent)
     }

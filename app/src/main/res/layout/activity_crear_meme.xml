@@ -4,6 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_blue"
     tools:context=".actividadesapi.ActivityCrearMeme">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Crear meme"
+        android:textSize="75px"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCrearMeme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginEnd="159dp"
+        android:layout_marginBottom="33dp"
+        android:text="Crear meme"
+        android:backgroundTint="@color/orange"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="1000px"
+        android:layout_height="1100px"
+        app:layout_constraintBottom_toTopOf="@+id/btnCrearMeme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardBackgroundColor="@color/blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/textoUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Introduce la url"
+                app:layout_constraintEnd_toEndOf="@+id/textoInf"
+                app:layout_constraintStart_toStartOf="@+id/textoInf"
+                app:layout_constraintTop_toBottomOf="@+id/textoInf" />
+
+            <TextView
+                android:id="@+id/labelTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Tags:"
+                android:textSize="55px"
+                app:layout_constraintBottom_toBottomOf="@+id/textoTag"
+                app:layout_constraintEnd_toStartOf="@+id/textoTag"
+                app:layout_constraintTop_toTopOf="@+id/textoTag" />
+
+            <EditText
+                android:id="@+id/textoInf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Introduce el tit. inferior"
+                app:layout_constraintEnd_toEndOf="@+id/textoSup"
+                app:layout_constraintStart_toStartOf="@+id/textoSup"
+                app:layout_constraintTop_toBottomOf="@+id/textoSup" />
+
+            <TextView
+                android:id="@+id/labelUrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Url:"
+                android:textSize="55px"
+                app:layout_constraintBottom_toBottomOf="@+id/textoUrl"
+                app:layout_constraintEnd_toStartOf="@+id/textoUrl"
+                app:layout_constraintTop_toTopOf="@+id/textoUrl" />
+
+            <EditText
+                android:id="@+id/textoTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Introduce los tags"
+                app:layout_constraintEnd_toEndOf="@+id/textoUrl"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textoUrl"
+                app:layout_constraintTop_toBottomOf="@+id/textoUrl" />
+
+            <TextView
+                android:id="@+id/labelNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Nombre:"
+                android:textSize="55px"
+                app:layout_constraintBottom_toBottomOf="@+id/textoNombre"
+                app:layout_constraintEnd_toStartOf="@+id/textoNombre"
+                app:layout_constraintTop_toTopOf="@+id/textoNombre" />
+
+            <EditText
+                android:id="@+id/textoNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:layout_marginEnd="55dp"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Introduce el nombre"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelTitSup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Tit. sup:"
+                android:textSize="55px"
+                app:layout_constraintBottom_toBottomOf="@+id/textoSup"
+                app:layout_constraintEnd_toStartOf="@+id/textoSup"
+                app:layout_constraintTop_toTopOf="@+id/textoSup" />
+
+            <TextView
+                android:id="@+id/labelTitInf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:text="Tit. inf:"
+                android:textSize="55px"
+                app:layout_constraintBottom_toBottomOf="@+id/textoInf"
+                app:layout_constraintEnd_toStartOf="@+id/textoInf"
+                app:layout_constraintTop_toTopOf="@+id/textoInf" />
+
+            <EditText
+                android:id="@+id/textoSup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="45dp"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Introduce el tit. superior"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textoNombre"
+                app:layout_constraintTop_toBottomOf="@+id/textoNombre" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
