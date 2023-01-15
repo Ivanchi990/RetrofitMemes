@@ -27,7 +27,7 @@ class ActivityMostrarMemeId : AppCompatActivity()
 
         var id = intent.getStringExtra("id")
 
-        mostrarMeme(Integer.valueOf(id))
+        mostrarMeme(id!!)
 
         binding.btnHome.setOnClickListener{
             casita()
@@ -36,11 +36,9 @@ class ActivityMostrarMemeId : AppCompatActivity()
         setContentView(binding.root)
     }
 
-    fun mostrarMeme(id: Int)
+    fun mostrarMeme(id: String)
     {
-        var ino = id.toString()
-
-        MemeRetrofitInstance.api.getMeme("/meme?id=$ino")
+        MemeRetrofitInstance.api.getMeme("/meme?id=$id")
             .enqueue(object : Callback<MemeResponse> {
                 override fun onResponse(
                     call: Call<MemeResponse>,

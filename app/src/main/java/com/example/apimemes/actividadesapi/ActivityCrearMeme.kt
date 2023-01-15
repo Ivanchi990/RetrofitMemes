@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.core.view.isVisible
 import com.example.apimemes.R
 import com.example.apimemes.databinding.ActivityCrearMemeBinding
@@ -34,35 +35,56 @@ class ActivityCrearMeme : AppCompatActivity()
 
     fun crearMeme()
     {
-        MemeRetrofitInstance.api.postMeme("/meme", Meme(
-            binding.textoNombre.text.toString(),
-            binding.textoSup.text.toString(),
-            binding.textoInf.text.toString(),
-            binding.textoUrl.text.toString(),
-            binding.textoTag.text.toString()
-        ))
-            .enqueue(object : Callback<PostResponse> {
-                override fun onResponse(
-                    call: Call<PostResponse>,
-                    response: Response<PostResponse>
-                ) {
-                    if (response.body() != null)
-                    {
-                        intent = Intent(applicationContext, ActivityMostrarMemeId::class.java).apply{
-                            putExtra("id", response.body()!!.idMeme.toString())
+        if(!datosRellenos())
+        {
+            MemeRetrofitInstance.api.postMeme(
+                "/meme", Meme(
+                    binding.textoNombre.text.toString(),
+                    binding.textoSup.text.toString(),
+                    binding.textoInf.text.toString(),
+                    binding.textoUrl.text.toString(),
+                    binding.textoTag.text.toString()
+                )
+            )
+                .enqueue(object : Callback<PostResponse> {
+                    override fun onResponse(
+                        call: Call<PostResponse>,
+                        response: Response<PostResponse>
+                    ) {
+                        if (response.body() != null) {
+                            intent = Intent(
+                                applicationContext,
+                                ActivityMostrarMemeId::class.java
+                            ).apply {
+                                putExtra("id", response.body()!!.idMeme.toString())
+                            }
+
+                            startActivity(intent)
                         }
-
-                        startActivity(intent)
+                            else
+                        {
+                            return
+                        }
                     }
-                    else
+
+                    override fun onFailure(call: Call<PostResponse>, t: Throwable)
                     {
-                        return
+                        Log.d("TAG", t.message.toString())
                     }
-                }
+                })
+        }
+        else
+        {
+            Toast.makeText(this, "Parece que faltan campos por rellenar", Toast.LENGTH_SHORT).show()
+        }
+    }
 
-                override fun onFailure(call: Call<PostResponse>, t: Throwable) {
-                    Log.d("TAG", t.message.toString())
-                }
-            })
+    fun datosRellenos(): Boolean
+    {
+        return  !binding.textoNombre.text.equals("") &&
+                !binding.textoSup.text.equals("") &&
+                !binding.textoInf.text.equals("") &&
+                !binding.textoUrl.text.equals("") &&
+                !binding.textoTag.text.equals("")
     }
 }
