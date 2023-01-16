@@ -4,6 +4,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Url
 
 interface MemeService {
@@ -15,4 +16,13 @@ interface MemeService {
 
     @POST
     fun postMeme(@Url url: String, @Body meme: Meme): Call<PostResponse>
+
+    @PUT
+    fun editMeme(@Url url: String, @Body meme: Meme): Call<MemeResponse>
+
+    @GET
+    fun getTags(@Url url: String): Call<List<TagResponse>>
+
+    @POST
+    fun postTag(@Url url: String, @Body tag: TagResponse)
 }

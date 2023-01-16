@@ -6,7 +6,7 @@
     android:layout_height="60dp">
 
     <TextView
-        android:id="@+id/idMeme"
+        android:id="@+id/idTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nombreMeme"
+        android:id="@+id/txtTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -24,7 +24,7 @@
         android:text="Niño bombástico"
         tools:layout_editor_absoluteX="98dp"
         tools:layout_editor_absoluteY="25dp"
-        app:layout_constraintLeft_toLeftOf="@id/idMeme"
+        app:layout_constraintLeft_toLeftOf="@id/idTag"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
@@ -35,6 +35,6 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/teal_700"
         android:text="Mostrar"
-        app:layout_constraintLeft_toLeftOf="@id/nombreMeme"
+        app:layout_constraintLeft_toLeftOf="@id/txtTag"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
