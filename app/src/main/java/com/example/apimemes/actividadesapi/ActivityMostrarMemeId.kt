@@ -53,7 +53,7 @@ class ActivityMostrarMemeId : AppCompatActivity()
 
                         Picasso.get()
                             .load(url)
-                            .error(R.mipmap.ic_launcher_round)
+                            .error(R.drawable.makina_linkedin)
                             .fit()
                             .centerCrop()
                             .into(binding.tuimageview)

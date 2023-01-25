@@ -75,6 +75,7 @@ tools:context=".actividadesapi.ActivityMostrarMemeId">
         tools:layout_editor_absoluteX="181dp"
         tools:layout_editor_absoluteY="693dp"
         android:layout_marginBottom="895px"
+        android:background="@color/blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>

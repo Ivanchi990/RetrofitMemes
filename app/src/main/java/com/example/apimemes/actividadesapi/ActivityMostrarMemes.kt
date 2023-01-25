@@ -4,17 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.apimemes.MainActivity
-import com.example.apimemes.R
-import com.example.apimemes.databinding.ActivityMostrarMemesBinding
+import com.example.apimemes.databinding.*
 import com.example.apimemes.memapi.MemeResponse
 import com.example.apimemes.memapi.MemeRetrofitInstance
 import com.example.apimemes.recyclerstuff.MemeAdapter
-import com.squareup.picasso.Picasso
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -58,6 +55,7 @@ class ActivityMostrarMemes : AppCompatActivity()
                         memeAdapter.MemeAdapter(applicationContext, response.body()!!)
 
                         recyclerView.adapter = memeAdapter
+                        binding.progressBar2.isVisible = false
                     }
                     else
                     {

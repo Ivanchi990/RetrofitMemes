@@ -12,6 +12,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="20dp"
         android:text="1"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="20dp"
+        android:textColor="@color/black"
         android:text="Niño bombástico"
         tools:layout_editor_absoluteX="98dp"
         tools:layout_editor_absoluteY="25dp"
@@ -33,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/orange"
         android:text="Mostrar"
         app:layout_constraintLeft_toLeftOf="@id/txtTag"
         app:layout_constraintTop_toTopOf="parent" />

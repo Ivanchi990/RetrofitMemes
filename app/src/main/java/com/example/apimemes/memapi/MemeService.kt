@@ -15,7 +15,7 @@ interface MemeService {
     fun getMemes(@Url url: String): Call<List<MemeResponse>>
 
     @POST
-    fun postMeme(@Url url: String, @Body meme: Meme): Call<PostResponse>
+    fun postMeme(@Url url: String, @Body meme: Meme): Call<MemeResponse>
 
     @PUT
     fun editMeme(@Url url: String, @Body meme: Meme): Call<MemeResponse>
@@ -24,5 +24,5 @@ interface MemeService {
     fun getTags(@Url url: String): Call<List<TagResponse>>
 
     @POST
-    fun postTag(@Url url: String, @Body tag: TagResponse)
+    fun postTag(@Url url: String, @Body tag: Tag): Call<TagResponse>
 }

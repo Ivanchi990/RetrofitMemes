@@ -5,14 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.core.view.isVisible
-import com.example.apimemes.R
 import com.example.apimemes.databinding.ActivityCrearMemeBinding
 import com.example.apimemes.memapi.Meme
 import com.example.apimemes.memapi.MemeResponse
 import com.example.apimemes.memapi.MemeRetrofitInstance
-import com.example.apimemes.memapi.PostResponse
-import com.squareup.picasso.Picasso
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,7 +31,7 @@ class ActivityCrearMeme : AppCompatActivity()
 
     fun crearMeme()
     {
-        if(!datosRellenos())
+        if(datosRellenos())
         {
             MemeRetrofitInstance.api.postMeme(
                 "/meme", Meme(
@@ -46,16 +42,13 @@ class ActivityCrearMeme : AppCompatActivity()
                     binding.textoTag.text.toString()
                 )
             )
-                .enqueue(object : Callback<PostResponse> {
+                .enqueue(object : Callback<MemeResponse> {
                     override fun onResponse(
-                        call: Call<PostResponse>,
-                        response: Response<PostResponse>
+                        call: Call<MemeResponse>,
+                        response: Response<MemeResponse>
                     ) {
                         if (response.body() != null) {
-                            intent = Intent(
-                                applicationContext,
-                                ActivityMostrarMemeId::class.java
-                            ).apply {
+                            intent = Intent(applicationContext, ActivityMostrarMemeId::class.java).apply {
                                 putExtra("id", response.body()!!.idMeme.toString())
                             }
 
@@ -67,7 +60,7 @@ class ActivityCrearMeme : AppCompatActivity()
                         }
                     }
 
-                    override fun onFailure(call: Call<PostResponse>, t: Throwable)
+                    override fun onFailure(call: Call<MemeResponse>, t: Throwable)
                     {
                         Log.d("TAG", t.message.toString())
                     }
@@ -81,10 +74,10 @@ class ActivityCrearMeme : AppCompatActivity()
 
     fun datosRellenos(): Boolean
     {
-        return  !binding.textoNombre.text.equals("") &&
-                !binding.textoSup.text.equals("") &&
-                !binding.textoInf.text.equals("") &&
-                !binding.textoUrl.text.equals("") &&
-                !binding.textoTag.text.equals("")
+        return  !(binding.textoNombre.text.equals("") &&
+                binding.textoSup.text.equals("") &&
+                binding.textoInf.text.equals("") &&
+                binding.textoUrl.text.equals("") &&
+                binding.textoTag.text.equals(""))
     }
 }

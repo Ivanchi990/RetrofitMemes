@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_blue"
     tools:context=".actividadesapi.ActivityMostrarMemes">
 
     <TextView
@@ -14,6 +15,8 @@
         android:layout_marginTop="29dp"
         android:layout_marginEnd="186dp"
         android:layout_marginBottom="1dp"
+        android:textSize="75px"
+        android:textColor="@color/black"
         android:text="Lista de memes"
         app:layout_constraintBottom_toTopOf="@+id/rvMemes"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,7 +40,19 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:text="Volver"
+        android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:background="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rvMemes" />
 </androidx.constraintlayout.widget.ConstraintLayout>

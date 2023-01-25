@@ -10,7 +10,6 @@ import com.example.apimemes.databinding.ActivityEditarMemeBinding
 import com.example.apimemes.memapi.Meme
 import com.example.apimemes.memapi.MemeResponse
 import com.example.apimemes.memapi.MemeRetrofitInstance
-import com.example.apimemes.memapi.PostResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -81,10 +80,10 @@ class ActivityEditarMeme : AppCompatActivity()
 
     fun comprobarDatos(): Boolean
     {
-        return  !binding.textoNombre2.text.equals("") &&
-                !binding.textoSup2.text.equals("") &&
-                !binding.textoInf2.text.equals("") &&
-                !binding.textoUrl2.text.equals("") &&
-                !binding.textoTag2.text.equals("")
+        return  !(binding.textoNombre2.text.equals("") &&
+                binding.textoSup2.text.equals("") &&
+                binding.textoInf2.text.equals("") &&
+                binding.textoUrl2.text.equals("") &&
+                binding.textoTag2.text.equals(""))
     }
 }
