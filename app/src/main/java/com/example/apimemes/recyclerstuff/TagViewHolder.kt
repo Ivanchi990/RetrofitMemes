@@ -9,7 +9,7 @@ import com.example.apimemes.memapi.TagResponse
 class TagViewHolder(view: View): RecyclerView.ViewHolder(view)
 {
     private var idTag: TextView = view.findViewById<TextView>(R.id.idTag)
-    private var txtTag: TextView = view.findViewWithTag<TextView>(R.id.txtTag)
+    private var txtTag: TextView = view.findViewById<TextView>(R.id.txtTag)
 
     fun render(tagResponse: TagResponse)
     {

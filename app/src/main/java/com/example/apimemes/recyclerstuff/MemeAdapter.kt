@@ -47,7 +47,7 @@ class MemeAdapter(private val onClickListener: (Int) -> Unit ): RecyclerView.Ada
     {
         pos += 5
 
-        MemeRetrofitInstance.api.getMemes("/meme/list?count=9&page=$pos")
+        MemeRetrofitInstance.api.getMemes("/meme/list?count=10&page=$pos")
             .enqueue(object : Callback<List<MemeResponse>> {
                 override fun onResponse(
                     call: Call<List<MemeResponse>>,

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtTag"
+        android:id="@+id/txtTag2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
@@ -37,6 +37,6 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/orange"
         android:text="Mostrar"
-        app:layout_constraintLeft_toLeftOf="@id/txtTag"
+        app:layout_constraintLeft_toLeftOf="@id/txtTag2"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
