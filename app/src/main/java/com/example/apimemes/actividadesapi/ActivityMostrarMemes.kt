@@ -32,6 +32,10 @@ class ActivityMostrarMemes : AppCompatActivity()
             volverCasa()
         }
 
+        binding.foabMas.setOnClickListener{
+            masMemes()
+        }
+
         setContentView(binding.root)
     }
 
@@ -56,6 +60,7 @@ class ActivityMostrarMemes : AppCompatActivity()
 
                         recyclerView.adapter = memeAdapter
                         binding.progressBar2.isVisible = false
+                        binding.foabMas.isVisible = true
                     }
                     else
                     {
@@ -69,6 +74,11 @@ class ActivityMostrarMemes : AppCompatActivity()
                     Log.d("TAG", t.message.toString())
                 }
             })
+    }
+
+    fun masMemes()
+    {
+        memeAdapter.mas5()
     }
 
     fun dameMeme(id: Int)

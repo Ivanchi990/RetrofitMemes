@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.apimemes.R
+import com.example.apimemes.MainActivity
 import com.example.apimemes.databinding.ActivityCrearTagBinding
 import com.example.apimemes.memapi.*
 import retrofit2.Call
@@ -43,8 +43,12 @@ class ActivityCrearTag : AppCompatActivity()
                         call: Call<TagResponse>,
                         response: Response<TagResponse>
                     ) {
-                        if (response.body() != null) {
-                                Toast.makeText(applicationContext, "El tag se ha creado correctamente", Toast.LENGTH_LONG).show()
+                        if (response.body() != null)
+                        {
+                            Toast.makeText(applicationContext, "El tag se ha creado correctamente", Toast.LENGTH_LONG).show()
+                            intent = Intent(applicationContext, MainActivity::class.java)
+
+                            startActivity(intent)
                         }
                         else
                         {
@@ -57,6 +61,10 @@ class ActivityCrearTag : AppCompatActivity()
                         Log.d("TAG", t.message.toString())
                     }
                 })
+        }
+        else
+        {
+            Toast.makeText(this, "Vaya, parece que no se ha podido crear el tag", Toast.LENGTH_SHORT)
         }
     }
 }

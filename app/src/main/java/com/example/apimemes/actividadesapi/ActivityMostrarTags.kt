@@ -40,7 +40,7 @@ class ActivityMostrarTags : AppCompatActivity()
 
     fun iniciarRecycler()
     {
-        MemeRetrofitInstance.api.getTags("tag/list")
+        MemeRetrofitInstance.api.getTags("/tag")
             .enqueue(object : Callback<List<TagResponse>>
             {
                 override fun onResponse(
@@ -49,7 +49,7 @@ class ActivityMostrarTags : AppCompatActivity()
                 {
                     if (response.body() != null)
                     {
-                        val recyclerView = findViewById<RecyclerView>(R.id.rvTags)
+                        val recyclerView = binding.rvTags
                         recyclerView.layoutManager = LinearLayoutManager(applicationContext)
 
                         recyclerView.adapter = TagAdapter(response.body()!!)

@@ -8,12 +8,16 @@ import com.example.apimemes.memapi.TagResponse
 
 class TagViewHolder(view: View): RecyclerView.ViewHolder(view)
 {
-    val idTag = view.findViewById<TextView>(R.id.idTag)
-    val txtTag = view.findViewWithTag<TextView>(R.id.txtTag)
+    private var idTag: TextView = view.findViewById<TextView>(R.id.idTag)
+    private var txtTag: TextView = view.findViewWithTag<TextView>(R.id.txtTag)
 
     fun render(tagResponse: TagResponse)
     {
         idTag.text = tagResponse.idTag.toString()
-        txtTag.text = tagResponse.texto
+
+        if(tagResponse.texto != "" && tagResponse.texto != null)
+            txtTag.text = tagResponse.texto
+        else
+            txtTag.text = "NULL"
     }
 }
