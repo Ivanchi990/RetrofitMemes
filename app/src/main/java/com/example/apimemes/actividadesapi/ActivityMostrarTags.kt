@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.apimemes.MainActivity
@@ -53,6 +54,7 @@ class ActivityMostrarTags : AppCompatActivity()
                         recyclerView.layoutManager = LinearLayoutManager(applicationContext)
 
                         recyclerView.adapter = TagAdapter(response.body()!!)
+                        binding.progressBar5.isVisible = true
                     }
                     else
                     {

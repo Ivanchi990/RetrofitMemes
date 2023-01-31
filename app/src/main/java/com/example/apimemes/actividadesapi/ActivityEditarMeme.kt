@@ -36,7 +36,7 @@ class ActivityEditarMeme : AppCompatActivity()
         if(comprobarDatos())
         {
             MemeRetrofitInstance.api.editMeme(
-                "/meme", Meme(
+                "/meme?id=${binding.edIdMeme.text.toString()}", Meme(
                     binding.textoNombre2.text.toString(),
                     binding.textoSup2.text.toString(),
                     binding.textoInf2.text.toString(),

@@ -42,6 +42,10 @@ class MainActivity : AppCompatActivity()
             showCreateTag()
         }
 
+        binding.foabEliminar.setOnClickListener{
+            showEliminarMeme()
+        }
+
         setContentView(binding.root)
     }
 
@@ -88,6 +92,14 @@ class MainActivity : AppCompatActivity()
     fun showCreateTag()
     {
         intent = Intent(this, ActivityCrearTag::class.java)
+
+        startActivity(intent)
+    }
+
+
+    fun showEliminarMeme()
+    {
+        intent = Intent(this, EliminarMemeId::class.java)
 
         startActivity(intent)
     }

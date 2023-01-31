@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class MemeResponse(
     @SerializedName("idMeme") var idMeme: Int,
     @SerializedName("nombre") var nombreMeme: String,
-    @SerializedName("titInf") var titInf: String,
-    @SerializedName("titSup") var titSup: String,
+    @SerializedName("tInferior") var titInf: String,
+    @SerializedName("tSuperior") var titSup: String,
     @SerializedName("url") var url: String
 )
