@@ -61,10 +61,12 @@
                 android:id="@+id/labelTag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="67dp"
+                android:layout_marginBottom="40dp"
                 android:text="Tags:"
                 android:textSize="55px"
-                tools:layout_editor_absoluteX="67dp"
-                tools:layout_editor_absoluteY="351dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <EditText
                 android:id="@+id/textoInf"
@@ -151,8 +153,11 @@
                 android:id="@+id/spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
                 android:layout_marginTop="39dp"
+                android:layout_marginBottom="40dp"
+                android:textAlignment="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/labelTag"
                 app:layout_constraintTop_toBottomOf="@+id/textoUrl" />
         </androidx.constraintlayout.widget.ConstraintLayout>

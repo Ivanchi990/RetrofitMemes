@@ -29,5 +29,5 @@ interface MemeService {
     fun postTag(@Url url: String, @Body tag: Tag): Call<TagResponse>
 
     @GET
-    fun deleteMeme(@Url url: String)
+    fun deleteMeme(@Url url: String): Call<DeleteResponse>
 }
