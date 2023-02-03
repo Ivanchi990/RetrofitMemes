@@ -20,6 +20,7 @@ class ActivityMostrarMemes : AppCompatActivity()
 {
     private lateinit var binding: ActivityMostrarMemesBinding
     private lateinit var memeAdapter: MemeAdapter
+    private var countMemes = 0
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -34,6 +35,10 @@ class ActivityMostrarMemes : AppCompatActivity()
 
         binding.foabMas.setOnClickListener{
             masMemes()
+        }
+
+        binding.foabLessMeme.setOnClickListener{
+            menosMemes()
         }
 
         setContentView(binding.root)
@@ -61,6 +66,7 @@ class ActivityMostrarMemes : AppCompatActivity()
                         recyclerView.adapter = memeAdapter
                         binding.progressBar2.isVisible = false
                         binding.foabMas.isVisible = true
+                        binding.foabLessMeme.isVisible = true
                     }
                     else
                     {
@@ -78,7 +84,14 @@ class ActivityMostrarMemes : AppCompatActivity()
 
     fun masMemes()
     {
-        memeAdapter.mas5()
+        countMemes += 5
+        memeAdapter.actualizar(countMemes)
+    }
+
+    fun menosMemes()
+    {
+        countMemes -= 5
+        memeAdapter.actualizar(countMemes)
     }
 
     fun dameMeme(id: Int)

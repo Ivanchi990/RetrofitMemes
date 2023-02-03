@@ -15,7 +15,7 @@
         android:theme="@style/Theme.ApiMemes"
         tools:targetApi="31">
         <activity
-            android:name=".EliminarMemeId"
+            android:name=".actividadesapi.EliminarMemeId"
             android:exported="false" />
         <activity
             android:name=".actividadesapi.ActivityPedirId"

@@ -67,5 +67,18 @@
         android:backgroundTint="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/stat_sys_download" />
+        app:srcCompat="@android:drawable/stat_sys_download"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/foabLessMeme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/orange"
+        android:layout_marginStart="46dp"
+        android:layout_marginBottom="80dp"
+        android:visibility="invisible"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_input_delete" />
 </androidx.constraintlayout.widget.ConstraintLayout>

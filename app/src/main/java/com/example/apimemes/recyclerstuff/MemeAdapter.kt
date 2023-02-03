@@ -19,7 +19,6 @@ class MemeAdapter(private val onClickListener: (Int) -> Unit ): RecyclerView.Ada
 {
     private lateinit var context: Context
     lateinit var memes: List<MemeResponse>
-    private var pos = 0
 
     fun MemeAdapter(context: Context, memes: List<MemeResponse>)
     {
@@ -43,10 +42,8 @@ class MemeAdapter(private val onClickListener: (Int) -> Unit ): RecyclerView.Ada
         holder.render(memes[position], onClickListener)
     }
 
-    fun mas5()
+    fun actualizar(pos: Int)
     {
-        pos += 5
-
         MemeRetrofitInstance.api.getMemes("/meme/list?count=10&page=$pos")
             .enqueue(object : Callback<List<MemeResponse>> {
                 override fun onResponse(
